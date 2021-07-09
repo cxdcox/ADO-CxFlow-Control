@@ -5,11 +5,15 @@ logging:
   file: flow.log
 
 cxflow:
-  bug-tracker: Azure
+# bug-tracker: Azure
+# bug-tracker-impl:
+#  - Azure
+  bug-tracker: CxXml
   bug-tracker-impl:
-  - Azure
+  - CxXml
   branches:
   - master
+  - main
   filter-severity:
   filter-category:
   - SQL_Injection
