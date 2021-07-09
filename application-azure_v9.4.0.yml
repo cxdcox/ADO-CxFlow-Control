@@ -1,0 +1,68 @@
+
+server:
+  port: 8982
+logging:
+  file: flow.log
+
+cxflow:
+  bug-tracker: Azure
+  bug-tracker-impl:
+  - Azure
+  branches:
+  - master
+  filter-severity:
+  filter-category:
+  - SQL_Injection
+  - Stored_XSS
+  - Reflected_XSS_All_Clients
+  filter-cwe:
+  filter-status:
+  #   - Urgent
+  #   - Confirmed
+  http-connection-timeout: 30000 #milliseconds - default 30000
+  http-read-timeout: 120000 #milliseconds - default 120000
+  break-build: true
+  thresholds:
+    high: 10
+    medium: 50
+  enabled-vulnerability-scanners:
+    - sast
+  #mitre-url: https://cwe.mitre.org/data/definitions/%s.html
+  #wiki-url: https://custodela.atlassian.net/wiki/spaces/AS/pages/79462432/Remediation+Guidance
+  codebash-url: https://checkmarx-demo.codebashing.com/courses/
+
+checkmarx:
+  version: 9.0
+  username: dcox
+  password: C0rky9#2016
+  scope: access_control_api sast_rest_api 
+  client-secret: 014DF517-39D1-4453-B7B3-9930C563627C
+  base-url: https://jwebsoftware.ngrok.io
+  #base-url: http://localhost
+  team: /CxServer/SP/Company/Users
+  url: ${checkmarx.base-url}/cxrestapi
+  #WSDL Config
+  portal-url: ${checkmarx.base-url}/cxwebinterface/Portal/CxWebService.asmx
+  sdk-url: ${checkmarx.base-url}/cxwebinterface/SDK/CxSDKWebService.asmx
+  portal-wsdl: ${checkmarx.base-url}/Portal/CxWebService.asmx?wsdl
+  sdk-wsdl: ${checkmarx.base-url}/SDK/CxSDKWebService.asmx?wsdl
+
+azure:
+  webhook-token: cxflow:12345
+  token: 3prpgkk4njbkg3j2xh46arkprs3avzqge6pogdxedxahyi6uqtra
+  url: https://dev.azure.com/cx-drc
+  issue-type: issue
+  api-version: 5.0
+  false-positive-label: false-positive
+  block-merge: true
+  closed-status: Done
+  open-status: "To Do"
+
+json:
+  file-name-format: "[NAMESPACE]-[REPO]-[BRANCH]-[TIME].json"
+  data-folder: "C:\\tmp"
+ 
+cx-xml:
+  file-name-format: "[NAMESPACE]-[REPO]-[BRANCH]-[TIME].xml"
+  data-folder: "C:\\tmp"
+
