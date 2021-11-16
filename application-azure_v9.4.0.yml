@@ -1,16 +1,18 @@
 
+# Version: v1.0104
+
 server:
-  port: 8982
+  port: 9400
 logging:
-  file: flow.log
+  file: ado-cxflow.log
 
 cxflow:
-# bug-tracker: Azure
-# bug-tracker-impl:
-#  - Azure
-  bug-tracker: CxXml
+  bug-tracker: Azure
   bug-tracker-impl:
-  - CxXml
+   - Azure
+# bug-tracker: CxXml
+# bug-tracker-impl:
+# - CxXml
   branches:
   - master
   - main
@@ -27,8 +29,8 @@ cxflow:
   http-read-timeout: 120000 #milliseconds - default 120000
   break-build: true
   thresholds:
-    high: 10
-    medium: 50
+    high: 100
+    medium: 500
   enabled-vulnerability-scanners:
     - sast
   #mitre-url: https://cwe.mitre.org/data/definitions/%s.html
