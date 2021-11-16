@@ -1,10 +1,10 @@
 
-# Version: v1.0104
+# Version: v1.0105
 
 server:
   port: 9400
 logging:
-  file: ado-cxflow.log
+  file: ado-2-cxflow.log
 
 cxflow:
   bug-tracker: Azure
