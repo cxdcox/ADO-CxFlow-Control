@@ -1,6 +1,6 @@
 rem ADO: Run this as a 'Command Line Script' Task version 2.*
 rem This will download the CxFlow JAR into the 'temp' directory (which should be $(Agent.TempDirectory)) and unzip it...
-rem Version: v1.0112
+rem Version: v1.0114
 
 rem - - - - - Set various CxCLI Variables - - - - -     
 
@@ -9,12 +9,10 @@ set CX_USER=dcox
 set CX_PSWD=C0rky9#2016
 
 set CX_TEAM=/CxServer/SP/Company/Users
-set CX_PROJECT=ADO-12-CxFlow-MyFirstProject
-set CX_APP=ADO-12
+set CX_PROJECT=ADO-14-CxFlow-MyFirstProject
+set CX_APP=ADO-14
 
-rem set CX_ADO_OWNER=cxdcox
-rem set CX_ADO_REPO=MyFirstProject
-rem set CX_ADO_BRANCH=master
+rem set CX_ADO_OWNER=cxdcox, CX_ADO_REPO=MyFirstProject , CX_ADO_BRANCH=master
 
 echo " = = = = = CxCLI Variables = = = = = "
 echo "CX_URL=%CX_URL%"
