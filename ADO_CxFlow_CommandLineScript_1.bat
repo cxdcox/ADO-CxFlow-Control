@@ -1,7 +1,7 @@
 rem
 rem ADO: Run this as a 'Command Line Script' Task version 2.*
 rem This will download the CxFlow JAR into the 'temp' directory (which should be $(Agent.TempDirectory)) and unzip it...
-rem Version: v1.0105
+rem Version: v1.0106
 
 rem - - - - - Set various CxCLI Variables - - - - -     
 
@@ -11,8 +11,12 @@ set CX_USER=dcox
 set CX_PSWD=C0rky9#2016
 
 set CX_TEAM=/CxServer/SP/Company/Users
-set CX_PROJECT=ADO-2-CxFlow-MyFirstProject
-set CX_APP=ADO-2
+set CX_PROJECT=ADO-3-CxFlow-MyFirstProject
+set CX_APP=ADO-3
+
+set CX_ADO_OWNER=cxdcox
+set CX_ADO_REPO=MyFirstProject
+set CX_ADO_BRANCH=master
 
 echo " = = = = = CxCLI Variables = = = = = "
 echo "CX_URL=%CX_URL%"
@@ -60,8 +64,8 @@ rem java -jar cx-flow-1.6.22.jar --help
 rem runCxConsole.cmd OsaScan -v -Projectname %CX_TEAM%%CX_PROJECT% -CxServer %CX_URL% -CxUser %CX_USER% -CxPassword %CX_PSWD% -LocationType folder -LocationPath "$(Build.Repository.LocalPath)" -OsaJson "$(Build.StagingDirectory)" -executepackagedependency
 
 echo "Running the downloaded CxFlow JAR in '--scan' mode..."
-echo "Invoking: java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" "
-java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%"
+echo "Invoking: java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --azure.owner-tag-prefix="%CX_ADO_OWNER%" --azure.repo-tag-prefix="CX_ADO_REPO%" --azure.branch-label-prefix="CX_ADO_BRANCH%" "
+java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --azure.owner-tag-prefix="%CX_ADO_OWNER%" --azure.repo-tag-prefix="CX_ADO_REPO%" --azure.branch-label-prefix="CX_ADO_BRANCH%"
 
 echo "Switching back to the 'source' directory..."
 popd
