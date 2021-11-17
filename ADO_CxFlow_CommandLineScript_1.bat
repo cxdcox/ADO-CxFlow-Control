@@ -1,7 +1,7 @@
 rem
 rem ADO: Run this as a 'Command Line Script' Task version 2.*
 rem This will download the CxFlow JAR into the 'temp' directory (which should be $(Agent.TempDirectory)) and unzip it...
-rem Version: v1.0109
+rem Version: v1.0110
 
 rem - - - - - Set various CxCLI Variables - - - - -     
 
@@ -11,8 +11,8 @@ set CX_USER=dcox
 set CX_PSWD=C0rky9#2016
 
 set CX_TEAM=/CxServer/SP/Company/Users
-set CX_PROJECT=ADO-6-CxFlow-MyFirstProject
-set CX_APP=ADO-6
+set CX_PROJECT=ADO-7-CxFlow-MyFirstProject
+set CX_APP=ADO-7
 
 rem set CX_ADO_OWNER=cxdcox
 rem set CX_ADO_REPO=MyFirstProject
@@ -65,10 +65,12 @@ rem java -jar cx-flow-1.6.22.jar --help
 rem runCxConsole.cmd OsaScan -v -Projectname %CX_TEAM%%CX_PROJECT% -CxServer %CX_URL% -CxUser %CX_USER% -CxPassword %CX_PSWD% -LocationType folder -LocationPath "$(Build.Repository.LocalPath)" -OsaJson "$(Build.StagingDirectory)" -executepackagedependency
 rem echo "Invoking: java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --azure.owner-tag-prefix="%CX_ADO_OWNER%" --azure.repo-tag-prefix="CX_ADO_REPO%" --azure.branch-label-prefix="CX_ADO_BRANCH%" "
 rem java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --azure.owner-tag-prefix="%CX_ADO_OWNER%" --azure.repo-tag-prefix="CX_ADO_REPO%" --azure.branch-label-prefix="CX_ADO_BRANCH%"
+rem echo "Invoking: java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --namespace="$(System.CollectionUri)" --repo-name="$(Build.Repository.Name)" --branch="$(Build.SourceBranchName)" "
+rem java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --namespace="$(System.CollectionUri)" --repo-name="$(Build.Repository.Name)" --branch="$(Build.SourceBranchName)"
 
 echo "Running the downloaded CxFlow JAR in '--scan' mode..."
-echo "Invoking: java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --namespace="$(System.CollectionUri)" --repo-name="$(Build.Repository.Name)" --branch="$(Build.SourceBranchName)" "
-java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --namespace="$(System.CollectionUri)" --repo-name="$(Build.Repository.Name)" --branch="$(Build.SourceBranchName)"
+echo "Invoking: java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --namespace="$(System.CollectionUri)" --repo-name="$(Build.Repository.Name)" --branch="master" "
+java -jar cx-flow-1.6.22.jar --scan --f="$(Build.Repository.LocalPath)" --spring.config.location="application-azure_v9.4.0.yml" --cx-team="%CX_TEAM%" --cx-project="%CX_PROJECT%" --app="%CX_APP%" --namespace="$(System.CollectionUri)" --repo-name="$(Build.Repository.Name)" --branch="master"
 
 echo "Switching back to the 'source' directory..."
 popd

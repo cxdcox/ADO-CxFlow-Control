@@ -1,10 +1,25 @@
 
-# Version: v1.0109
+# Version: v1.0110
 
 server:
   port: 9400
 logging:
   file: ado-4-cxflow.log
+  level:
+    com:
+      checkmarx:
+        flow:
+          cmd: TRACE
+          service: TRACE
+          controller: TRACE
+    org:
+      apache:
+        http:
+          wire: TRACE
+      springframework:
+        web:
+          client:
+            RestTemplate: TRACE
 
 cxflow:
   bug-tracker: Azure
