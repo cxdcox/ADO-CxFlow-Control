@@ -1,5 +1,5 @@
 
-# Version: v1.0114
+# Version: v1.0115
 
 server:
   port: 9400
@@ -70,7 +70,8 @@ checkmarx:
 
 azure:
   webhook-token: cxflow:12345
-  token: 3prpgkk4njbkg3j2xh46arkprs3avzqge6pogdxedxahyi6uqtra
+  #token: 3prpgkk4njbkg3j2xh46arkprs3avzqge6pogdxedxahyi6uqtra
+  token: 5tqdwmawwvxuifz4n5o4d7sk364htxahprfryzdtd2gh6xntyo3q
   #url: https://dev.azure.com/cx-drc
   url: https://dev.azure.com/
   issue-type: issue
